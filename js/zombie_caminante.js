@@ -3,17 +3,17 @@ modificarlo para hacer que se comporte de la forma que mas te guste.
 Este zombie recibe los mismos parametros que el objeto Enemigo. Podes consultar
 el archivo Enemigo.js para entender que es cada uno. */
 
-var ZombieCaminante = function(sprite, x, y, ancho, alto, velocidad, rangoMov) {
+var ZombieConductor = function(sprite, x, y, ancho, alto, velocidad, rangoMov) {
   /* ZombieCaminante llama al constructor de Enemigo utilizando los parametros
   necesarios */
   Enemigo.call(this, sprite, x, y, ancho, alto, velocidad, rangoMov);
 }
 /* Completamos la creacion del objeto asignando su prototipo y la funcion
 constructor para poder usarla con 'new' al crear nuevos Zombies Caminantes */
-ZombieCaminante.prototype = Object.create(Enemigo.prototype);
-ZombieCaminante.prototype.constructor = ZombieCaminante;
+ZombieConductor.prototype = Object.create(Enemigo.prototype);
+ZombieConductor.prototype.constructor = ZombieConductor;
 
-ZombieCaminante.prototype.mover = function() {
+ZombieConductor.prototype.mover = function() {
   /* Los movimientos estan basados en un numero aleatorio
   La direccion horizontal es siempre la misma y va ondulando verticalmente.
   Esto hasta llegar a sus limites, donde se invierte su direccion horizontal */
