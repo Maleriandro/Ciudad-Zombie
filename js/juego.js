@@ -50,7 +50,8 @@ var Juego = {
   ],
   // Los enemigos se agregaran en este arreglo.
   enemigos: [
-    new 
+    new ZombieCaminante('imagenes/zombie1.png', 200, 900, 10, 10, 5, {desdeX: 0, hastaX: 960, desdeY: 0, hastaY: 577}),
+
   ]
 
 }
