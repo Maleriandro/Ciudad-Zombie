@@ -7,6 +7,8 @@ var ZombieCaminante = function(sprite, x, y, ancho, alto, velocidad, rangoMov) {
   /* ZombieCaminante llama al constructor de Enemigo utilizando los parametros
   necesarios */
   Enemigo.call(this, sprite, x, y, ancho, alto, velocidad, rangoMov);
+
+  this.potencia = 1; 
 }
 /* Completamos la creacion del objeto asignando su prototipo y la funcion
 constructor para poder usarla con 'new' al crear nuevos Zombies Caminantes */
@@ -17,12 +19,16 @@ ZombieCaminante.prototype.mover = function() {
   /* Los movimientos estan basados en un numero aleatorio
   La direccion horizontal es siempre la misma y va ondulando verticalmente.
   Esto hasta llegar a sus limites, donde se invierte su direccion horizontal */
-  if (Math.random() < 0.5) {
+  var mathrandom = Math.random();
+ 
+  if (mathrandom < 0.333) {
     this.x -= this.velocidad;
     this.y -= this.velocidad;
-  } else {
+  } else if (mathrandom > 0.666) {
     //Sino, hace otro movimiento
     this.y += this.velocidad;
+    this.x -= this.velocidad;
+  } else {
     this.x -= this.velocidad;
   }
 
