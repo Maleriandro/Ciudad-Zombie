@@ -6,20 +6,29 @@ del ZombieCaminante que eran los mismos. */
 
 var ZombieConductor = function(sprite, x, y, ancho, alto, velocidad, rangoMov, direccion) {
   /* Completar constructor a partir de Enemigo */
-  Enemigo.call(sprite, x, y, ancho, alto, velocidad, rangoMov);
+  Enemigo.call(this, sprite, x, y, ancho, alto, velocidad, rangoMov);
 
   this.direccion = direccion;
+  this.potencia = 10;
   /* No olvidar agregar la/s propiedad/es unicas de ZombieConductor necesarias */
 }
 
 ZombieConductor.prototype = Object.create(Enemigo.prototype);
 ZombieConductor.prototype.constructor = ZombieConductor;
 
-ZombieConductor.prototype.mover = function() {
-  if (this.direccion = "horizontal") {
-    moverEnDireccion(x);
+ZombieConductor.prototype.mover = function moverFn() {
+  
+  if(this.direccion === 'h') {  
+    if ((this.x < this.rangoMov.desdeX) || (this.x > this.rangoMov.hastaX)){
+      this.velocidad *= -1;
+    }
+    this.x += this.velocidad;
+
   } else {
-    moverEnDireccion(y);
+    if ((this.y < this.rangoMov.desdeY) || (this.y > this.rangoMov.hastaY)){
+      this.velocidad *= -1;
+    }
+    this.y += this.velocidad;
   }
 }
 
